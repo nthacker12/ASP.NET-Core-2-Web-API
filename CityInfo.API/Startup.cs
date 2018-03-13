@@ -34,16 +34,6 @@ namespace CityInfo.API
                 .AddMvcOptions(o => o.OutputFormatters.Add(
                     new XmlDataContractSerializerOutputFormatter()));
 
-            // Code for changing the resulting Json file from lowercase to uppercase
-            //.AddJsonOptions(o => {
-            //    if (o.SerializerSettings.ContractResolver != null)
-            //    {
-            //        var castedResolver = o.SerializerSettings.ContractResolver 
-            //            as DefaultContractResolver;
-            //        castedResolver.NamingStrategy = null;
-            //    }
-            //});
-
 #if DEBUG
             services.AddTransient<IMailService, LocalMailService>();
 #else
@@ -81,19 +71,12 @@ namespace CityInfo.API
                 cfg.CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDto>();
                 cfg.CreateMap<Entities.City, Models.CityDto>();
                 cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestDto>();
+                cfg.CreateMap<Models.PointOfInterestForCreationDto, Entities.PointOfInterest>();
+                cfg.CreateMap<Models.PointOfInterestForUpdateDto, Entities.PointOfInterest>();
+                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestForUpdateDto>();
             });
 
             app.UseMvc();
-
-            //app.Run((context) =>
-            //{
-            //    throw new Exception("Example exception");
-            //});
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
         }
     }
 }

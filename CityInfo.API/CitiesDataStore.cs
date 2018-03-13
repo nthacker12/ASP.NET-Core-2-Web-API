@@ -9,7 +9,7 @@ namespace CityInfo.API
     /// <summary>
     /// Our in memory DataStore (pre-Entity framework implementation).
     /// 
-    /// TODO: Replace with Database with Entity Framework Core implementation.
+    /// NOTE: NO LONGER USED (DEPRECATED)
     /// 
     /// </summary>
     public class CitiesDataStore
