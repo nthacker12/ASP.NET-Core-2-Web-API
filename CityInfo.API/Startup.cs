@@ -75,6 +75,14 @@ namespace CityInfo.API
 
             app.UseStatusCodePages();
 
+            // Auto map our entities to our Dto's
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDto>();
+                cfg.CreateMap<Entities.City, Models.CityDto>();
+                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestDto>();
+            });
+
             app.UseMvc();
 
             //app.Run((context) =>
