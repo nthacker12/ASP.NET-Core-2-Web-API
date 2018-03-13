@@ -6,6 +6,12 @@ using CityInfo.API.Models;
 
 namespace CityInfo.API
 {
+    /// <summary>
+    /// Our in memory DataStore (pre-Entity framework implementation).
+    /// 
+    /// TODO: Replace with Database with Entity Framework Core implementation.
+    /// 
+    /// </summary>
     public class CitiesDataStore
     {
         public static CitiesDataStore Current { get; } = new CitiesDataStore();
